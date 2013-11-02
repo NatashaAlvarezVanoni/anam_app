@@ -1,0 +1,21 @@
+<?php
+
+
+
+class Prueba extends CI_Controller{
+
+
+
+public function index(){
+
+
+<<<<<<< HEAD
+	echo "pepito";
+=======
+	echo "hola mundoss";
+>>>>>>> 668a5098d33922cdab08b886e4aee92a612ca892
+
+}
+
+
+}
