@@ -1,0 +1,77 @@
+#body-container{
+    width: 800px;
+    height: 649px;
+    margin: 0 auto;
+    background: url('../img/background.jpg');
+}
+#landing-home{
+    width: 496px;
+    height: 496px;
+    margin: 0 auto;
+    position: relative;
+    top: 75px;
+    background: url('../img/circuloparticipa.png');
+}
+#landing-instrucciones{
+    width: 445px;
+    height: 507px;
+    margin: 0 auto;
+    position: relative;
+    top: 75px;
+    background: url('../img/mecanicaconcurso.png');
+}
+#landing-inscripcion{
+    width: 543px;
+    height: 503px;
+    margin: 0 auto;
+    position: relative;
+    top: 75px;
+    background: url('../img/datos.png');
+}
+#button-participar{
+    width: 165px;
+    height: 51px;
+    margin: 0 auto;
+    position: relative;
+    top: 390px;
+}
+#button-siguiente{
+    width: 165px;
+    height: 51px;
+    margin: 0 auto;
+    position: relative;
+    top: 390px;
+}
+#landing-inscripcion form{
+    overflow: hidden;
+    height: inherit;
+}
+#form{
+    overflow: hidden;
+}
+#texts{
+    padding-top: 100px;
+    width: 193px;
+    float: left;
+    overflow: hidden;
+}
+#fields{
+    padding-top: 100px;
+    width: 350px;
+    float: right;
+}
+#field{
+    padding-top: 3px;
+    padding-bottom: 4px;
+}
+#field input{
+    width: 275px;
+    border-radius: 8px;
+}
+#button-submit{
+    width: 130px;
+    height: 51px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 20px;
+}
