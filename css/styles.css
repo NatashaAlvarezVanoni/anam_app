@@ -4,6 +4,14 @@
     margin: 0 auto;
     background: url('../img/background.jpg');
 }
+#landing-home.nofan{
+    width: 496px;
+    height: 496px;
+    margin: 0 auto;
+    position: relative;
+    top: 75px;
+    background: url('../img/megusta.png');
+}
 #landing-home{
     width: 496px;
     height: 496px;
@@ -27,6 +35,14 @@
     position: relative;
     top: 75px;
     background: url('../img/datos.png');
+}
+#landing-final{
+    width: 499px;
+    height: 499px;
+    margin: 0 auto;
+    position: relative;
+    top: 75px;
+    background: url('../img/compartir.png');
 }
 #button-participar{
     width: 165px;
@@ -60,13 +76,19 @@
     width: 350px;
     float: right;
 }
+#fields .error{
+    height: 14px;
+    font-size: 10px;
+}
 #field{
+    height: 41px;
     padding-top: 3px;
     padding-bottom: 4px;
 }
 #field input{
     width: 275px;
     border-radius: 8px;
+    margin-bottom: 0px;
 }
 #button-submit{
     width: 130px;
@@ -74,4 +96,15 @@
     margin: 0 auto;
     position: relative;
     padding-top: 20px;
+}
+#social{
+    width: 162px;
+    height: 81px;
+    margin: 0 auto;
+    padding-top: 330px;
+}
+#fb-share, #tw-share{
+    float: left;
+    width: 81px;
+    height: 81px;
 }
