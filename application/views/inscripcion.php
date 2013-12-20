@@ -1,7 +1,7 @@
       <div id="landing-inscripcion">
         <?php //echo validation_errors(); ?>
         <?php //echo $form_open;?>
-        <form name="datos" id="datos" action="https://juanxinho.webfactional.com/flores-app-new/inscripcion" method="POST">
+        <form name="datos" id="datos" action="https://juanxinho.webfactional.com/flores-app/inscripcion" method="POST">
           <div id="form">
             <div id="texts"></div>
             <div id="fields">

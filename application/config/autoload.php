@@ -50,9 +50,16 @@ $autoload['packages'] = array();
 | Prototype:
 |
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
+|
+| Facebook Ignited: 
+|
+|	We always include the library so it autoloads it.
+|	It will load the config files from config/facebook.php so make 
+|	sure you change the details pertaining to your app there.
+|
 */
 
-$autoload['libraries'] = array();
+$autoload['libraries'] = array('fb_ignited');
 
 
 /*

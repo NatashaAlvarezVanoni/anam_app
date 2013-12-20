@@ -17,64 +17,52 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
-		require_once(APPPATH."libraries/facebook-php-sdk/src/facebook.php");
-		
-		$app_id = "446610158788817"; // Your application id
-		$app_secret = "bbbadb37442092163d6c24a59736e839"; // Your application secret
-		$page_id = "464559146990910";
-		
-		$config = array(
-		    'appId' => $app_id,
-		    'secret' => $app_secret,
-		    'fileUpload' => false, // optional
-		    'allowSignedRequest' => false, // optional, but should be set to false for non-canvas apps
-		    'cookie' => true
-		);
-		
-		$facebook = new Facebook($config);
-		
-		$params = array(
-		  'scope' => 'read_stream, friends_likes','email',
-		  'redirect_uri' => 'https://juanxinho.webfactional.com/flores-app-new/instrucciones'
-		);
-		
-		$login_url = $facebook->getLoginUrl($params);
-		$user = $facebook->getUser();
 
+	function __construct()
+	{
+		parent::__construct();		
 		
-		$signedrequest = $facebook->getSignedRequest();
-		$fbp_id = $signedrequest["page"]["id"]; //Facebook Fan Page ID
-		//echo $is_admin = $signedrequest["page"]["admin"]; echo " Page Admin <br>";
-		//echo $is_liked = $signedrequest["page"]["liked"]; echo " Page Liked<br>";
-		//echo $uid=$facebook->getUser(); echo " User ID<br>";
+		// The fb_ignited library is already auto-loaded so call the user and app.
+		$this->fb_me = $this->fb_ignited->fb_get_me(true);		
+		$this->fb_app = $this->fb_ignited->fb_get_app();
 		
-		//$isFan = $facebook->api(array(
-		//	"method" => "fql.query",
-		//	"query"  => "SELECT uid FROM page_fan WHERE page_id = '464559146990910' AND uid = '$user'"
-		//));
-		//echo $isFan;
+		// This is a Request System I made to be used to work with Facebook Ignited.
+		// NOTE: This is not mandatory for the system to work.
+		if ($this->input->get('request_ids'))
+		{
+			$requests = $this->input->get('request_ids');
+			$this->request_result = $this->fb_ignited->fb_accept_requests($requests);
+		}
+	}
+	
+	public function index()
+	{		
+		if (isset($this->request_result))
+		{
+			$content_data['error'] = $this->request_result;
+		}
+		if ($this->fb_me)
+		{
+			$content_data['me'] = $this->fb_me;
+		}
+		//$content_data['last_status'] = $this->fb_ignited->api('/me/feed?limit=5');
+		$content_data['fb_app'] = $this->fb_app;
+		//$content_data['login_login'] = $this->fb_ignited->fb_login_url();
 		
-		//if ($user) {
-		//try {
-		//	$likes = $facebook->api("/me/likes/464559146990910");
-		//	if( !empty($likes['data']) )
-		//	    $fan = true;
-		//	else
-		//	    $fan = false;
-		//      } catch (FacebookApiException $e) {
-		//	error_log($e);
-		//	$user = null;
-		//      }
-		//}
-		//$data['isfan'] = $is_liked;
-		$data['loginUrl'] = $login_url;
-		//echo $loginUrl;
-		$data['title'] = "&iexcl;Arma tu florero! - Inicio";
-		$this->load->view('header', $data);
+		$content_data['title'] = "&iexcl;Arma tu florero! - Inicio";
+		$this->load->view('header', $content_data);
 		$this->load->view('index');
 		$this->load->view('footer');
+	}
+	function view_feed() {
+		
+	}
+	
+	function callback()
+	{
+		// This method will include the facebook credits system.
+		$content_data['message'] = $this->fb_ignited->fb_process_credits();
+		$this->load->view('fb_credits_view', $content_data);
 	}
 	
 }

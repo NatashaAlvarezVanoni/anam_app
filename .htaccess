@@ -1,4 +1,44 @@
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule .* index.php/$0 [PT,L] 
+RewriteRule .* index.php/$0 [PT,L]
+#RewriteEngine On 
+#Options FollowSymLinks
+#RewriteBase /
+#
+#
+#RewriteRule ^error/(.*)$ index.php?/main/index/$1 [L]
+#
+##Removes access to the system folder by users.
+##Additionally this will allow you to create a System.php controller,
+##previously this would not have been possible.
+##'system' can be replaced if you have renamed your system folder.
+#RewriteCond %{REQUEST_URI} ^system.*
+#RewriteRule ^(.*)$ /index.php?/$1 [L]
+#  
+##When your application folder isn't in the system folder
+##This snippet prevents user access to the application folder
+##Submitted by: Fabdrol
+##Rename 'application' to your applications folder name.
+#RewriteCond %{REQUEST_URI} ^application.*
+#RewriteRule ^(.*)$ /index.php?/$1 [L]
+#
+##Checks to see if the user is attempting to access a valid file,
+##such as an image or css document, if this isn't true it sends the
+##request to index.php
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php?/$1 [L]
+#
+## block proxy servers from site access
+## http://perishablepress.com/press/2008/04/20/how-to-block-proxy-servers-via-htaccess/
+#
+#RewriteCond %{HTTP:VIA}                 !^$ [OR]
+#RewriteCond %{HTTP:FORWARDED}           !^$ [OR]
+#RewriteCond %{HTTP:USERAGENT_VIA}       !^$ [OR]
+#RewriteCond %{HTTP:X_FORWARDED_FOR}     !^$ [OR]
+#RewriteCond %{HTTP:PROXY_CONNECTION}    !^$ [OR]
+#RewriteCond %{HTTP:XPROXY_CONNECTION}   !^$ [OR]
+#RewriteCond %{HTTP:HTTP_PC_REMOTE_ADDR} !^$ [OR]
+#RewriteCond %{HTTP:HTTP_CLIENT_IP}      !^$
+#RewriteRule ^(.*)$ - [F]
