@@ -27,7 +27,7 @@
         {
           method: 'feed',
           name: 'ANAM - Arma tu florero',
-          link: 'https://www.facebook.com/anam?sk=app_446610158788817',
+          link: 'https://www.facebook.com/anamgrupo?sk=app_446610158788817',
           picture: '',
           caption: 'Arma tu florero!',
           description: 'Inscr&iacute;bete en el app de ANAM para crear tu florero!',
