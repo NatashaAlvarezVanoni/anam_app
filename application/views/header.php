@@ -9,7 +9,13 @@
     <!--<script src="https://code.jquery.com/jquery.js"></script>-->
     <!--<script src="js/bootstrap.min.js"></script>-->
     <!--<script src="js/facebook.js"></script>-->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>-->
+    
+    <!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">-->
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
+      
     <script src="//connect.facebook.net/en_US/all.js"></script>
     <script>
       $(document).ready(function(){
@@ -87,8 +93,30 @@
                       return false;
               }
       };			
-    </script>
-    <script>
+
+      $(function() {
+          var $tabs = $('#gallery-inscritos').tabs();
+                                      
+          $(".ui-tabs-panel").each(function(i){
+                  var totalSize = $(".ui-tabs-panel").size() - 1;
+                  if (i != totalSize) {
+                          next = i + 2;
+                          $(this).append("<a href='#' class='next-tab mover' rel='" + next + "'>>></a>");
+                  }
+                  if (i != 0) {
+                          prev = i;
+                          $(this).append("<a href='#' class='prev-tab mover' rel='" + prev + "'><<</a>");
+                          }
+          });
+          $('.next-tab, .prev-tab').click(function() {
+                  $tabs.tabs('select', $(this).attr("rel"));
+                  return false;
+          });
+          
+          
+          
+        });
+      
       function mostrarDiv(idDiv)
       {
         switch (idDiv)
@@ -135,38 +163,6 @@
       function cambiarImg(path){
         $("img#placeholder").attr("src", path);
       }
-    </script>
-    <script type="text/javascript">
-            function init(){
-                
-                var $tabs = $('#gallery-inscritos').tabs();
-                                            
-                $(".ui-tabs-panel").each(function(i){
-                        var totalSize = $(".ui-tabs-panel").size() - 1;
-                        if (i != totalSize) {
-                                next = i + 2;
-                                $(this).append("<a href='#' class='next-tab mover' rel='" + next + "'>>></a>");
-                        }
-                        if (i != 0) {
-                                prev = i;
-                                $(this).append("<a href='#' class='prev-tab mover' rel='" + prev + "'><<</a>");
-                                }
-                });
-                $('.next-tab, .prev-tab').click(function() {
-                        $tabs.tabs('select', $(this).attr("rel"));
-                        return false;
-                });
-                
-                
-                $('input[type=file]').filestyle({
-                        image: "images/buscar-foto.png",
-                        imageheight : 23,
-                        imagewidth : 89,
-                        width : 250
-                });
-            }
-
-            $(init);
     </script>
   </head>
   <body>
