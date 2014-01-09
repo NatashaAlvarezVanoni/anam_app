@@ -1,3 +1,7 @@
+h1,h3{
+    color: #F42376;
+    text-align: center;
+}
 #body-container{
     width: 800px;
     height: 649px;
@@ -170,7 +174,8 @@ img#placeholder{
 #girasoles,
 #maceteros{
     width: 300px;
-    overflow: hidden;
+    height: 200px;
+    overflow: scroll;
     background: #FFF;
     border: 3px solid #FF187A;
 }
@@ -219,8 +224,34 @@ img#placeholder{
     margin: 0 auto;
     background: #FFF;
 }
+#gallery-inscritos ul li{
+    list-style: none;
+    text-align: center;
+}
 #gallery-inscritos a{
     color: #000;
     font-weight: lighter;
     text-decoration: none;
+}
+#detalle-florero{
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    background: #FFF;
+    position: relative;
+    top: 25px;
+}
+#datos-aviso-bottom{
+    text-align: center;
+}
+ul.gal-items{
+    overflow: hidden;
+}
+ul.gal-items li{
+    list-style: none;
+    text-align: center;
+    width: 100px;
+    height: 160px;
+    padding: 10px;
+    float: left;
 }

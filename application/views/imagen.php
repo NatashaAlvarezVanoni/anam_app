@@ -1,6 +1,7 @@
       <div id="landing-imagen">
-        <h3>Este es tu florero!</h3>
         <div id="imagen-final">
+          <h3>Este es tu florero!</h3>
+          <br>
           <img src="uploads/<?php echo $fid;?>/florero-final.jpg"/>
         </div>
         <div id="buttons-bottom">

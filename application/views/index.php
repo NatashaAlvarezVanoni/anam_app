@@ -1,6 +1,8 @@
-      <?php //echo $me['id'];
+
+      <?php
+        //echo $me['id'];
         //foreach ($me as $key => $value) {
-          //echo 'ARRAY FIELD - '. $key . ': ' . $value;
+        //  echo 'ARRAY FIELD - '. $key . ': ' . $value;
         //}
       ?><div id="landing-home">
         <div id="button-participar">

@@ -76,7 +76,7 @@
 
               FB.ui(obj, callback);
       }
-          
+
       var callback = function(data) {
               if (data['order_id']) {
                       // Success, we received the order_id. The order states can be

@@ -26,6 +26,7 @@
             $votos = $row['votos'];
           }
 	?>
+        <div id="detalle-florero">
               <div id="datos-aviso">
                 <div id="informacion">
                   <h1>Florero de <?php echo $nombre;?></h1>
@@ -39,17 +40,20 @@
               </div>
               <div id="datos-aviso-bottom">
                       <div id="informacion">
-                      <h1><?php echo $nombre ?></h1>
+                      <h2><?php echo $nombre ?></h2>
                       <h2><?php echo $votos ?> Votos</h2>
                       </div>
                       <br>
                       <div id="botones">
                       <form name="votar-frm" method="GET" action="detalle">
                               <input type="hidden" name="action" value="inscrito"/>
-                              <input type="hidden" name="id" value="<?php echo $fid_participante; ?>"/>
+                              <input type="hidden" name="id" value="<?php echo $uid; ?>"/>
+                              <input type="hidden" name="fid_participante" value="<?php echo $fid_participante; ?>"/>
                               <input type="hidden" name="task" value="votar"/>
                               <input type="image" src="img/btn_votar.png"/>
+                              <a href="galeria"><img src="img/btn_regresar.png"/></a>
                       </form>
+                      
                       <div id="compartir">
                         Compartir:<br>
 
@@ -70,3 +74,4 @@
             </div>
           </div>
         </div>
+      </div>

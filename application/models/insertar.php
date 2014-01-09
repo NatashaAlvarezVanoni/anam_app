@@ -11,8 +11,8 @@ class Insertar extends CI_Model{
         $direccion = $_POST['direccion'];
         //$foto = null;
         
-        $this->db->query("INSERT INTO `inscripcion`(`fid`, `nombre`, `email`, `ci`, `ciudad`, `telefono`, `direccion`, `foto`)
-                         VALUES('$fid','$nombre','$email','$ci','$ciudad','$telefono','$direccion',null)");
+        $this->db->query("INSERT INTO `inscripcion`(`fid`, `nombre`, `email`, `ci`, `ciudad`, `telefono`, `direccion`, `votos`)
+                         VALUES('$fid','$nombre','$email','$ci','$ciudad','$telefono','$direccion',0)");
        //$this->db->set($data);
        //$this->db->insert('inscripcion');
        //$this->db->insert_id();

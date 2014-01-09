@@ -1,5 +1,6 @@
       <div id="landing-galeria">
           <div id="gallery-inscritos">
+            <h3>Vota por tu florero favorito!</h3>
             <?php
               $galeria = array();
               foreach ($result as $row)
@@ -19,6 +20,7 @@
               $count = 1;
               $counttab = 1;
               //shuffle($galeria);
+              //echo sizeof($galeria);
               ?>
               <ul>
                   <?php for($i=0;$i<sizeof($galeria)/6;$i++){ ?>
@@ -32,7 +34,7 @@
                       echo '<div id="tabs-'. $counttab .'" class="tabsx"><ul class="gal-items">';
                   }
                   echo '<li>';
-                  echo '<a href="tab_concurso.php?action=inscrito&id='.$galeria[$i]['id'].'">';
+                  echo '<a href="detalle?action=inscrito&id='.$galeria[$i]['id'].'&fid_participante='.$galeria[$i]['fid'].'">';
                   /*if (file_exists("uploads/".$galeria[$i]['uid']."/galeria_".$galeria[$i]['aviso'])){
                       echo '<img src="uploads/'.$galeria[$i]['uid'].'/galeria_'.$galeria[$i]['aviso'].'"/><br/>';
                   }else{
@@ -41,7 +43,7 @@
                   echo '<img src="uploads/' . $galeria[$i]['fid'] . '/florero-final.jpg" width="110" height="110"/><br/>';
                   echo '</a>';
                   echo '
-                              <b><a href="detalle?action=inscrito&id='.$galeria[$i]['id'].'">'.$galeria[$i]['nombre'].'<br/>'.$galeria[$i]['votos'].' Votos</a></b>
+                              <b><a href="detalle?action=inscrito&id='.$galeria[$i]['id'].'&fid_participante='.$galeria[$i]['fid'].'">'.$galeria[$i]['nombre'].'<br/>'.$galeria[$i]['votos'].' Votos</a></b>
                       </li>
                       ';
                   if($count==6){

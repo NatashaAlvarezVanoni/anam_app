@@ -38,17 +38,18 @@ class Detalle extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('insertar');
-		
 		$form_data = $this->input->get();
+		$id = $this->input->get("id");
+		$participante_fid = $this->input->get("fid_participante");
+		
 		if($this->input->get("task") == 'votar'){
-			$id = $this->input->get("id");
-			$result_voto = $this->insertar->votar($id,$this->fb_me['id']);
+			$result_voto = $this->insertar->votar($participante_fid,$this->fb_me['id']);
 		}
 		//$rosas = $this->input->post("rosas");
 
 		
 		
-		$result = $this->insertar->getUser($this->fb_me['id']);
+		$result = $this->insertar->getUser($participante_fid);
 		$content_data['result'] = $result;
 		
 		if (isset($this->request_result))

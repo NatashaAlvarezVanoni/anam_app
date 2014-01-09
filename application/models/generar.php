@@ -30,7 +30,7 @@ class Generar extends CI_Model{
 	  ' -gravity NorthWest -draw "image Over   0,0 0,0 \''. $girasoles .'\'" ' .
 	  ' -gravity NorthWest -draw "image Over   0,0 0,0 \''. $lirios .'\'" ' .
           ' -gravity NorthWest -draw "image Over   0,0 0,0 \''. $maceteros .'\'" ' .
-	  '"'.$filename.'"'; 
+	  ' -fill white -opaque none "'.$filename.'"'; 
 	
 	@exec($command);
 	@unlink($file);

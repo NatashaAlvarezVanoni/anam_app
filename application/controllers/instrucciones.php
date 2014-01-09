@@ -19,9 +19,13 @@ class Instrucciones extends CI_Controller{
 	}
 	function check_exists($str, $table, $column){
 		$this->load->database();
-		$query = $this->db->query("SELECT COUNT(*) AS count FROM $table WHERE $column = $str");
-		$row = $query->row();
-		if($row){
+		$query = $this->db->query("SELECT COUNT(*) FROM $table WHERE $column = $str");
+		$existe = $query->row();
+		foreach ($existe as $row)
+		{
+		  $existe = $row;
+		}
+		if($existe == 1){
 			$login_url = 'florero';
 			return $login_url;
 			//$this->form_validation->set_message('error','Ya estas inscrito anteriormente');

@@ -36,7 +36,8 @@ class Welcome extends CI_Controller {
 	}
 	
 	public function index()
-	{		
+	{
+		//echo $this->is_fan;
 		if (isset($this->request_result))
 		{
 			$content_data['error'] = $this->request_result;
