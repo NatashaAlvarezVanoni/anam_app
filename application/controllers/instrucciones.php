@@ -17,6 +17,22 @@ class Instrucciones extends CI_Controller{
 			$this->request_result = $this->fb_ignited->fb_accept_requests($requests);
 		}
 	}
+	function check_exists($str, $table, $column){
+		$this->load->database();
+		$query = $this->db->query("SELECT COUNT(*) AS count FROM $table WHERE $column = $str");
+		$row = $query->row();
+		if($row){
+			$login_url = 'florero';
+			return $login_url;
+			//$this->form_validation->set_message('error','Ya estas inscrito anteriormente');
+			//return false;
+		}
+		else{
+			$login_url = 'inscripcion';
+			return $login_url;
+			//return true;
+		}
+	}
 	public function index()
 	{
 		if (isset($this->request_result))
@@ -29,9 +45,10 @@ class Instrucciones extends CI_Controller{
 		}
 		$content_data['fb_app'] = $this->fb_app;
 		
+		$content_data['RedirectUrl'] = $this->check_exists($this->fb_me['id'],'inscripcion','fid');;
 		$content_data['title'] = "&iexcl;Arma tu florero! - Instrucciones";
 		$this->load->view('header', $content_data);
-		$this->load->view('instrucciones');
+		$this->load->view('instrucciones',$content_data);
 		$this->load->view('footer');
 	}
 }

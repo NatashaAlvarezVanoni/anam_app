@@ -15,7 +15,7 @@
 $config['fb_appid']     = '446610158788817';
 $config['fb_pageid']    = '464559146990910';
 $config['fb_secret']    = 'bbbadb37442092163d6c24a59736e839';
-$config['fb_canvas']    = 'https://juanxinho.webfactional.com/flores-app/';
+$config['fb_canvas']    = 'anamfloresapp';
 $config['fb_apptype']   = 'iframe';
 $config['fb_auth']      = '';
 $config['fb_upload']    = false;

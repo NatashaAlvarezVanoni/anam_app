@@ -36,6 +36,13 @@
     top: 75px;
     background: url('../img/datos.png');
 }
+#landing-florero{
+    width: 800px;
+    height: 649px;
+    margin: 0 auto;
+    position: relative;
+    background: #FFEEF4;
+}
 #landing-final{
     width: 499px;
     height: 499px;
@@ -107,4 +114,113 @@
     float: left;
     width: 81px;
     height: 81px;
+}
+#buttons-top{
+    width: 620px;
+    height: 70px;
+    padding-top: 20px;
+    padding-left: 90px;
+    padding-right: 90px;
+    padding-bottom: 20px;
+}
+#button{
+    float: left;
+    padding: 5px;
+}
+#container-floreros{
+    width: 800px;
+    height: 400px;
+}
+#container-floreros-left{
+    width: 400px;
+    height: 400px;
+    float: left;
+}
+#container-floreros-right{
+    width: 400px;
+    height: 400px;
+    float: right;
+}
+#contenedor-imagen{
+    width: 300px;
+    height: 350px;
+    background: #FFF;
+    border: 5px solid #FF187A;
+    margin-left: 45px;
+    margin-right: 45px;
+}
+img#placeholder{
+    width: 300px;
+    height: 350px;
+}
+#imagen{
+    width: 100px;
+    height: 75px;
+    float: left;
+}
+#imagen img{
+    width: 100px;
+    height: 50px;
+}
+#imagen input{
+    width: 100px;
+}
+#rosas,
+#lirios,
+#girasoles,
+#maceteros{
+    width: 300px;
+    overflow: hidden;
+    background: #FFF;
+    border: 3px solid #FF187A;
+}
+#rosas{
+    display: block;
+}
+#lirios{
+    display: none;
+}
+#girasoles{
+    display: none;
+}
+#maceteros{
+    display: none;
+}
+#landing-florero #buttons-bottom{
+    width: 130px;
+    height: 51px;
+    margin: 0 auto;
+}
+#landing-imagen{
+    padding-top: 50px;
+}
+#landing-imagen #buttons-bottom{
+    padding-top: 20px;
+    width: 335px;
+    height: 51px;
+    margin: 0 auto;
+}
+#imagen-final{
+    width: 400px;
+    height: 400px;
+    background: #FFF;
+    margin: 0 auto;
+    text-align: center;
+}
+#imagen-final img{
+    width: 300px;
+    height: 350px;
+}
+#landing-galeria{
+    padding-top: 100px;
+}
+#gallery-inscritos{
+    width: 700px;
+    margin: 0 auto;
+    background: #FFF;
+}
+#gallery-inscritos a{
+    color: #000;
+    font-weight: lighter;
+    text-decoration: none;
 }

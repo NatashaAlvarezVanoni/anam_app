@@ -1,5 +1,3 @@
-
-      </script>
       <div id="landing-final">
         <div id="social">
           <div id="fb-share">

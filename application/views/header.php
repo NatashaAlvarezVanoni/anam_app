@@ -21,17 +21,17 @@
               });
               FB.Canvas.setSize();
       });
-      function sendfeed()
+      function sendfeed(foto,nombre)
       {
         FB.ui(
         {
           method: 'feed',
           name: 'ANAM - Arma tu florero',
           link: 'https://www.facebook.com/anamgrupo?sk=app_446610158788817',
-          picture: '',
+          picture: foto,
           caption: 'Arma tu florero!',
-          description: 'Inscr&iacute;bete en el app de ANAM para crear tu florero!',
-          message: 'Inscr’bete en el app de ANAM para crear tu florero!'
+          description: 'Vota por el florero de ' + nombre,
+          message: 'Inscr’bete en arma tu florero y vota por tu favorito!'
         },
         function(response) {
                 if (response && response.post_id) {
@@ -87,6 +87,86 @@
                       return false;
               }
       };			
+    </script>
+    <script>
+      function mostrarDiv(idDiv)
+      {
+        switch (idDiv)
+        {
+        case 'rosas':
+          document.getElementById('rosas').style.display = "block";
+          //document.getElementById('azucenas').style.display = "none";
+          document.getElementById('lirios').style.display = "none";
+          document.getElementById('girasoles').style.display = "none";
+          document.getElementById('maceteros').style.display = "none";
+          break;
+        case 'azucenas':
+          document.getElementById('rosas').style.display = "none";
+          //document.getElementById('azucenas').style.display = "block";
+          document.getElementById('lirios').style.display = "none";
+          document.getElementById('girasoles').style.display = "none";
+          document.getElementById('maceteros').style.display = "none";
+          break;
+        case 'lirios':
+          document.getElementById('rosas').style.display = "none";
+          //document.getElementById('azucenas').style.display = "none";
+          document.getElementById('lirios').style.display = "block";
+          document.getElementById('girasoles').style.display = "none";
+          document.getElementById('maceteros').style.display = "none";
+          break;
+        case 'girasoles':
+          document.getElementById('rosas').style.display = "none";
+          //document.getElementById('azucenas').style.display = "none";
+          document.getElementById('lirios').style.display = "none";
+          document.getElementById('girasoles').style.display = "block";
+          document.getElementById('maceteros').style.display = "none";
+          break;
+        case 'maceteros':
+          document.getElementById('rosas').style.display = "none";
+          //document.getElementById('azucenas').style.display = "none";
+          document.getElementById('lirios').style.display = "none";
+          document.getElementById('girasoles').style.display = "none";
+          document.getElementById('maceteros').style.display = "block";
+          break;
+        }
+        div = document.getElementById(idDiv);
+        div.style.display= 'block';
+      }
+      function cambiarImg(path){
+        $("img#placeholder").attr("src", path);
+      }
+    </script>
+    <script type="text/javascript">
+            function init(){
+                
+                var $tabs = $('#gallery-inscritos').tabs();
+                                            
+                $(".ui-tabs-panel").each(function(i){
+                        var totalSize = $(".ui-tabs-panel").size() - 1;
+                        if (i != totalSize) {
+                                next = i + 2;
+                                $(this).append("<a href='#' class='next-tab mover' rel='" + next + "'>>></a>");
+                        }
+                        if (i != 0) {
+                                prev = i;
+                                $(this).append("<a href='#' class='prev-tab mover' rel='" + prev + "'><<</a>");
+                                }
+                });
+                $('.next-tab, .prev-tab').click(function() {
+                        $tabs.tabs('select', $(this).attr("rel"));
+                        return false;
+                });
+                
+                
+                $('input[type=file]').filestyle({
+                        image: "images/buscar-foto.png",
+                        imageheight : 23,
+                        imagewidth : 89,
+                        width : 250
+                });
+            }
+
+            $(init);
     </script>
   </head>
   <body>

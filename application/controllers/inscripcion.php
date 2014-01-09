@@ -18,7 +18,7 @@ class Inscripcion extends CI_Controller{
 		}
 	}
 	public function index()
-	{		
+	{
 		
 		$this->load->helper('form','url');
 		$this->load->library('form_validation');
@@ -29,7 +29,7 @@ class Inscripcion extends CI_Controller{
 		$content_data['ciudad'] = form_input('ciudad','');
 		$content_data['telefono'] = form_input('telefono','');
 		$content_data['direccion'] = form_input('direccion','');
-	    
+	    	    
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		$this->form_validation->set_rules('nombre', 'Nombre', 'required|alpha_numeric'); 
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
@@ -58,10 +58,10 @@ class Inscripcion extends CI_Controller{
 			}
 			$content_data['fb_app'] = $this->fb_app;
 			$this->load->model('insertar');
-			$this->insertar->guardar();
-			$data['title'] = "&iexcl;Arma tu florero! - Final";
+			$this->insertar->guardar($this->fb_me['id']);
+			$data['title'] = "&iexcl;Arma tu florero! - Arma tu florero";
 			$this->load->view('header', $content_data);
-			$this->load->view('final');
+			$this->load->view('florero');
 			$this->load->view('footer');
 		}
 	}
