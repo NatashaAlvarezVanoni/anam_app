@@ -26,6 +26,7 @@
                       xfbml  : true  // parse XFBML
               });
               FB.Canvas.setSize();
+              
       });
       function sendfeed(foto,nombre)
       {

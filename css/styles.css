@@ -55,6 +55,14 @@ h1,h3{
     top: 75px;
     background: url('../img/compartir.png');
 }
+#landing-gracias{
+    width: 496px;
+    height: 496px;
+    margin: 0 auto;
+    position: relative;
+    top: 75px;
+    background: url('../img/compartir.png');
+}
 #button-participar{
     width: 165px;
     height: 51px;

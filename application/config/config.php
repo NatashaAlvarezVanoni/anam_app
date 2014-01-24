@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://juanxinho.webfactional.com/flores-app-new/';
+$config['base_url']	= 'http://jnietos.com/flores-app/';
 
 /*
 |--------------------------------------------------------------------------

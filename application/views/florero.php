@@ -1,5 +1,5 @@
       <div id="landing-florero">
-        <form name="flores" id="flores" action="https://juanxinho.webfactional.com/flores-app/florero" method="POST">
+        <form name="flores" id="flores" action="https://jnietos.com/flores-app/florero" method="POST">
           <div id="buttons-top">
           <div id="button"><a href="#" onclick="mostrarDiv('rosas')"><img src="img/rosas.png"/></a></div>
           <!--<div id="button"><a href="#" onclick="mostrarDiv('azucenas')"><img src="img/azucenas.png"/></a></div>-->

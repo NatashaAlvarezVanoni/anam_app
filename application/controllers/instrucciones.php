@@ -26,7 +26,8 @@ class Instrucciones extends CI_Controller{
 		  $existe = $row;
 		}
 		if($existe == 1){
-			$login_url = 'florero';
+			//$login_url = 'florero';
+			$login_url = 'final';
 			return $login_url;
 			//$this->form_validation->set_message('error','Ya estas inscrito anteriormente');
 			//return false;

@@ -25,6 +25,8 @@ class Welcome extends CI_Controller {
 		// The fb_ignited library is already auto-loaded so call the user and app.
 		$this->fb_me = $this->fb_ignited->fb_get_me(true);		
 		$this->fb_app = $this->fb_ignited->fb_get_app();
+		//NO SIRVE, DA ERROR
+		//$this->is_fan = $this->fb_ignited->fb_is_liked();
 		
 		// This is a Request System I made to be used to work with Facebook Ignited.
 		// NOTE: This is not mandatory for the system to work.
@@ -37,7 +39,9 @@ class Welcome extends CI_Controller {
 	
 	public function index()
 	{
+		//echo $_REQUEST["fb_sig_page_id"];
 		//echo $this->is_fan;
+		//echo $this->fb_ignited->fb_is_liked();
 		if (isset($this->request_result))
 		{
 			$content_data['error'] = $this->request_result;
@@ -55,9 +59,18 @@ class Welcome extends CI_Controller {
 		$this->load->view('index');
 		$this->load->view('footer');
 	}
-	function view_feed() {
-		
-	}
+	//public function is_fan() {
+	//	$our_page_id = '464559146990910'; // This should be string
+	//	$user_is_fan = false;
+	//	$likes = $this->fb_ignited->facebook->api( '/me/likes?fields=id' );
+	//	foreach( $likes['data'] as $page ) {
+	//	    if( $page['id'] === $our_page_id ) {
+	//		$user_is_fan = true;
+	//		return $user_is_fan;
+	//	    }
+	//	}
+	//	
+	//}
 	
 	function callback()
 	{

@@ -33,7 +33,7 @@ class Inscripcion extends CI_Controller{
 		$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 		$this->form_validation->set_rules('nombre', 'Nombre', 'required|alpha_numeric'); 
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-		$this->form_validation->set_rules('ci', 'C&eacute;dula', 'required|numeric|max_length[10]');
+		$this->form_validation->set_rules('ci', 'C&eacute;dula', 'required|numeric|max_length[10]|callback_cedula_check');
 		$this->form_validation->set_rules('ciudad', 'Ciudad', 'required|max_length[30]|alpha_numeric');
 		$this->form_validation->set_rules('telefono', 'Tel&eacute;fono', 'required|numeric|max_length[10]'); 
 		$this->form_validation->set_rules('direccion', 'Direcci&oacute;n', 'required|max_length[300]'); 
@@ -61,8 +61,71 @@ class Inscripcion extends CI_Controller{
 			$this->insertar->guardar($this->fb_me['id']);
 			$data['title'] = "&iexcl;Arma tu florero! - Arma tu florero";
 			$this->load->view('header', $content_data);
-			$this->load->view('florero');
+			//COMENTADO PARA PANTALLA DE PRIMERA FASE
+			//$this->load->view('florero');
+			$this->load->view('final');
 			$this->load->view('footer');
+		}
+	}
+	public function cedula_check($str){
+		if(is_null($str) || empty($str)){
+			$this->form_validation->set_message('cedula_check', 'Compruebe que su n&uacute;mero de c&eacute;dula sea correcto');
+			return FALSE;
+		}else{
+			if(is_numeric($str)){ 
+				$total_caracteres=strlen($str);// se suma el total de caracteres
+				if($total_caracteres==10){//compruebo que tenga 10 digitos la cedula
+					$nro_region=substr($str, 0,2);//extraigo los dos primeros caracteres de izq a der
+					if($nro_region>=1 && $nro_region<=24){// compruebo a que region pertenece esta cedula//
+						$ult_digito=substr($str, -1,1);//extraigo el ultimo digito de la cedula
+						//extraigo los valores pares//
+						$valor2=substr($str, 1, 1);
+						$valor4=substr($str, 3, 1);
+						$valor6=substr($str, 5, 1);
+						$valor8=substr($str, 7, 1);
+						$suma_pares=($valor2 + $valor4 + $valor6 + $valor8);
+						$valor1=substr($str, 0, 1);
+						$valor1=($valor1 * 2);
+						if($valor1>9){ $valor1=($valor1 - 9); }else{ }
+						$valor3=substr($str, 2, 1);
+						$valor3=($valor3 * 2);
+						if($valor3>9){ $valor3=($valor3 - 9); }else{ }
+						$valor5=substr($str, 4, 1);
+						$valor5=($valor5 * 2);
+						if($valor5>9){ $valor5=($valor5 - 9); }else{ }
+						$valor7=substr($str, 6, 1);
+						$valor7=($valor7 * 2);
+						if($valor7>9){ $valor7=($valor7 - 9); }else{ }
+						$valor9=substr($str, 8, 1);
+						$valor9=($valor9 * 2);
+						if($valor9>9){ $valor9=($valor9 - 9); }else{ }
+	
+						$suma_impares=($valor1 + $valor3 + $valor5 + $valor7 + $valor9);
+						$suma=($suma_pares + $suma_impares);
+						$dis=substr($suma, 0,1);//extraigo el primer numero de la suma
+						$dis=(($dis + 1)* 10);//luego ese numero lo multiplico x 10, consiguiendo asi la decena inmediata superior
+						$digito=($dis - $suma);
+						if($digito==10){ $digito='0'; }else{ }//si la suma nos resulta 10, el decimo digito es cero
+						if ($digito==$ult_digito){//comparo los digitos final y ultimo
+							return TRUE;
+						}else{
+							$this->form_validation->set_message('cedula_check', 'Compruebe que su n&uacute;mero de c&eacute;dula sea correcto');
+							return FALSE;
+						}
+					}else{
+						$this->form_validation->set_message('cedula_check', 'Compruebe que su n&uacute;mero de c&eacute;dula sea correcto');
+						return FALSE;
+					}
+				}else{
+				$this->form_validation->set_message('cedula_check', 'Compruebe que su n&uacute;mero de c&eacute;dula sea correcto');
+				return FALSE;
+				//echo "Es un Numero y tiene solo".$total_caracteres;
+				}
+			}else{
+				$this->form_validation->set_message('cedula_check', 'Compruebe que su n&uacute;mero de c&eacute;dula sea correcto');
+				return FALSE;
+				//echo "Esta Cedula no corresponde a un Nro de Cedula de Ecuador";
+			}
 		}
 	}
 }
