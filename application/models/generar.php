@@ -3,7 +3,7 @@ class Generar extends CI_Model{
     public function generar_imagen($rosas,$lirios,$girasoles,$maceteros,$fid) {
         $error = false;
         //define("SERVER_DIRECTORY", realpath(dirname(__FILE__)));
-        define('SERVER_DIRECTORY','/home/juanxinho/webapps/htdocs/flores-app');
+        define('SERVER_DIRECTORY','/home/juanxinho/webapps/jnietos/flores-app');
         
         if (!file_exists("uploads")){
 	    mkdir("uploads");

@@ -61,9 +61,7 @@ class Inscripcion extends CI_Controller{
 			$this->insertar->guardar($this->fb_me['id']);
 			$data['title'] = "&iexcl;Arma tu florero! - Arma tu florero";
 			$this->load->view('header', $content_data);
-			//COMENTADO PARA PANTALLA DE PRIMERA FASE
-			//$this->load->view('florero');
-			$this->load->view('final');
+			$this->load->view('florero');
 			$this->load->view('footer');
 		}
 	}

@@ -25,6 +25,7 @@ class Welcome extends CI_Controller {
 		// The fb_ignited library is already auto-loaded so call the user and app.
 		$this->fb_me = $this->fb_ignited->fb_get_me(true);		
 		$this->fb_app = $this->fb_ignited->fb_get_app();
+		//$this->fb_ignited->fb_check_permissions('publish_stream,email,offline_access', true); 
 		//NO SIRVE, DA ERROR
 		//$this->is_fan = $this->fb_ignited->fb_is_liked();
 		

@@ -20,6 +20,7 @@ $config['fb_apptype']   = 'iframe';
 $config['fb_auth']      = '';
 $config['fb_upload']    = false;
 $config['fb_logexcept'] = true;
+//$config['fb_auth']      = 'publish_stream,email,offline_access';//'read_stream, friends_likes, user_photos, publish_actions';
 
 /**
  * --- fb_canvas examples ---
