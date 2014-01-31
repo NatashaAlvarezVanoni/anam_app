@@ -26,7 +26,7 @@
                     for ($i = 0; $i < $total_images; $i++) {
                       $path = $directory . $images[$i];
                       echo "<div id='imagen'><img src=\"" . $path . "\"  />";
-                      echo '<input type="checkbox" id="'.$ruta[$j].'-'.$i.'-chkbx" name="'.$ruta[$j].'" value="'.$images[$i].'" onclick="cambiarImg(\'' . $path . '\',\''.$ruta[$j].'-'.$i.'-chkbx\')"></div>';
+                      echo '<input type="checkbox" id="'.$ruta[$j].'-'.$i.'-chkbx" name="'.$ruta[$j].'[]" value="'.$images[$i].'" onclick="cambiarImg(\'' . $path . '\',\''.$ruta[$j].'-'.$i.'-chkbx\')"></div>';
                     }
                     echo "</div>";
                   }

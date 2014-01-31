@@ -20,12 +20,38 @@ class Florero extends CI_Controller{
 	
 	public function index()
 	{
+		$rosas = null;
+		$lirios = null;
+		$girasoles = null;
+		$maceteros = null;
+		
 		$form_data = $this->input->post();
-		$rosas = $this->input->post("rosas");
-		$lirios = $this->input->post("lirios");
-		$girasoles = $this->input->post("girasoles");
-		$maceteros = $this->input->post("maceteros");
-		//foreach ($form_data as $key => $value) {
+		if($this->input->post("rosas") != null){
+			foreach ($this->input->post("rosas") as $key_rosas => $value_rosas) {
+				$rosas[] = $value_rosas;
+			}
+		}
+		if($this->input->post("lirios") != null){
+			foreach ($this->input->post("lirios") as $key_lirios => $value_lirios) {
+				$lirios[] = $value_lirios;
+			}
+		}
+		if($this->input->post("girasoles") != null){
+			foreach ($this->input->post("girasoles") as $key_girasoles => $value_girasoles) {
+				$girasoles[] = $value_girasoles;
+			}
+		}
+		if($this->input->post("maceteros") != null){
+			foreach ($this->input->post("maceteros") as $key_maceteros => $value_maceteros) {
+				$maceteros[] = $value_maceteros;
+			}
+		}
+		//$rosas[] = $this->input->post("rosas");
+		//$lirios[] = $this->input->post("lirios");
+		//$girasoles[] = $this->input->post("girasoles");
+		//$maceteros[] = $this->input->post("maceteros");
+		
+		//foreach ($this->input->post("rosas") as $key => $value) {
 		//	echo 'ARRAY FIELD - '. $key . ': ' . $value;
 		//}
 		if($rosas != null || $lirios != null || $girasoles != null || $maceteros != null ){
