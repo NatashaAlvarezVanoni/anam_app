@@ -34,7 +34,7 @@ class Inscripcion extends CI_Controller{
 		$this->form_validation->set_rules('nombre', 'Nombre', 'required|alpha_numeric'); 
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 		$this->form_validation->set_rules('ci', 'C&eacute;dula', 'required|numeric|max_length[10]|callback_cedula_check');
-		$this->form_validation->set_rules('ciudad', 'Ciudad', 'required|max_length[30]|alpha_numeric');
+		$this->form_validation->set_rules('ciudad', 'Ciudad', 'required|max_length[30]');
 		$this->form_validation->set_rules('telefono', 'Tel&eacute;fono', 'required|numeric|max_length[10]'); 
 		$this->form_validation->set_rules('direccion', 'Direcci&oacute;n', 'required|max_length[300]'); 
                 
