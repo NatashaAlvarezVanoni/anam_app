@@ -28,7 +28,7 @@
               FB.Canvas.setSize();
               
       });
-      function sendfeed(foto,nombre)
+      function sendfeed(foto,mensaje)
       {
         FB.ui(
         {
@@ -37,7 +37,7 @@
           link: 'https://www.facebook.com/anamgrupo?sk=app_446610158788817',
           picture: foto,
           caption: 'Arma tu florero!',
-          description: 'Vota por el florero de ' + nombre,
+          description: mensaje,
           message: 'Inscr’bete en arma tu florero y vota por tu favorito!'
         },
         function(response) {
@@ -161,8 +161,18 @@
         div = document.getElementById(idDiv);
         div.style.display= 'block';
       }
-      function cambiarImg(path){
-        $("img#placeholder").attr("src", path);
+      function cambiarImg(path,id){
+        var element = document.getElementById(id);
+        if (element.checked == true){
+          //alert ('checked');
+          $('#contenedor-imagen').append('<img id="placeholder" class="'+id+'" src="'+path+'">');
+        }else{
+          $("."+id+"").remove();
+          //alert ('not checked');
+          //element.parentNode.removeChild(element);
+        }
+        
+        //$("img#placeholder").attr("src", path);
       }
     </script>
   </head>

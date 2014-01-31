@@ -10,7 +10,7 @@
         <div id="container-floreros">
           <div id="container-floreros-left">
             <div id="contenedor-imagen">
-              <img id="placeholder" src="">
+              <!--<img id="placeholder" src="">-->
             </div>
           </div>
           <div id="container-floreros-right">
@@ -26,7 +26,7 @@
                     for ($i = 0; $i < $total_images; $i++) {
                       $path = $directory . $images[$i];
                       echo "<div id='imagen'><img src=\"" . $path . "\"  />";
-                      echo '<input type="radio" name="'.$ruta[$j].'" value="'.$images[$i].'" onclick="cambiarImg(\'' . $path . '\')"></div>';
+                      echo '<input type="checkbox" id="'.$ruta[$j].'-'.$i.'-chkbx" name="'.$ruta[$j].'" value="'.$images[$i].'" onclick="cambiarImg(\'' . $path . '\',\''.$ruta[$j].'-'.$i.'-chkbx\')"></div>';
                     }
                     echo "</div>";
                   }
@@ -70,8 +70,9 @@
         </div>
         <div id="buttons-bottom">
           <div id="button">
-            <input type="image" src="img/btn_enviar.png"/>
+            <input type="image" src="img/btn_sig.png"/>
             </div>
       </div>
       </form>
     </div>
+

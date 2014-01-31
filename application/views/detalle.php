@@ -64,7 +64,7 @@
                           $link = $protocol . 'www.facebook.com/'. $page_name .'?sk=app_' . $app_id;
                           $texto= "Vota por el florero de " . $nombre;
                       ?>
-                        <a href="javascript:void();" onclick="sendfeed('jnietos.com/flores-app/<?php echo $imagen; ?>','<?php echo $nombre;?>')"><img border="0" src="img/facebook.png"/></a>
+                        <a href="javascript:void();" onclick="sendfeed('jnietos.com/flores-app/<?php echo $imagen; ?>','<?php echo 'Vota por el florero de '.$nombre;?>')"><img border="0" src="img/facebook.png"/></a>
                         <a href="https://twitter.com/share?url=<?php echo $link ?>&text=<?php echo $texto ?>" data-lang="en" target="_blank"><img border="0" src="img/twitter.png"/></a>
                       </div>
                       </div>

@@ -32,7 +32,7 @@
             </div>
           </div>
           <div id="button-submit">
-            <input type="image" src="img/btn_enviar.png" alt="Submit">
+            <input type="image" src="img/btn_sig.png" alt="Submit">
         </div>
         </form>
       </div>
